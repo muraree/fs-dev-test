@@ -5,13 +5,14 @@ const sequence = require('./sequence');
 
 app.use(cors("*"));
 
+let count = 0;
+
 function generator(sequencer){
-  let sum = 0;
   return {
     next : function next() {  
-      const value = sequencer(sum);
-      sum ++;
-      return value
+      const value = sequencer(count);
+      count ++;
+      return value;
     }
   }
 }
