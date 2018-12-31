@@ -16,23 +16,39 @@ exports.factorialSeq = function fact(x) {
 
 // Prime number sequence.
 
-exports.primeSeq = function prime() {
-  for (let limit = 1; limit <= 20; limit++) {
-    let a = false;
-    for (let i = 2; i <= limit; i++) {
-      if (limit % i === 0 && i !== limit) {
-          a = true;
-      }
+function isPrime(num) {
+  for ( var i = 2; i < num; i++ ) {
+    if ( num % i === 0 ) {
+      return false;
     }
-    if (a === false) {
-      console.log(limit);
+  }
+  return true;
+}
+
+exports.primeSeq = function prime(x) {
+
+  for ( var i = x; i < 99999999; i+=2 ) {
+    if ( isPrime(i) ) {
+      return i;
     }
+  }
+}
+
+// Even number check.
+
+exports.isEven = function even(x) {
+  
+  if (x % 2 === 0) {
+    return { status: true, number: x }
+  } else {
+    return { status: false, number: x }
   }
 }
 
 // Range sequence.
 
 exports.rangeSeq = function range(start, end) {
+  
   let result = [];
   for (let i = start; i <= end; i++) {
       result.push(i);

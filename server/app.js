@@ -7,7 +7,7 @@ app.use(cors("*"));
 
 let count = 0;
 
-function generator(sequencer){
+function generator(sequencer, ...rest){
   return {
     next : function next() {  
       const value = sequencer(count);
@@ -30,15 +30,24 @@ app.get('/fibonacciSeq', function(req, res) {
 })
 
 app.get('/rangeSeq', function(req, res) {
-
+  const rangeGen = generator(sequence.rangeSeq, 1, 2);
+  const nextVal = rangeGen.next();
+  res.send({ data: nextVal });
 })
 
 app.get('/primeSeq', function(req, res) {
-
+  const primeGen = generator(sequence.primeSeq);
+  const nextVal = primeGen.next();
+  res.send({ data: nextVal });
 })
 
 app.get('/partialSumSeq', function(req, res) {
-  
+
+})
+
+app.get('/isEven', function(req, res) {
+  const ie = sequence.isEven(4);
+  res.send({ data: ie });
 })
 
 module.exports = app;
