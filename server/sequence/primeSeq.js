@@ -3,15 +3,15 @@
 const getNextPrimeNumber = (value) => {
   if (value > 2) {
     let i;
-    let q;
+    let j;
     do {
       i = 3;
       value += 2;
-      q = Math.floor(Math.sqrt(value));
-      while (i <= q && value % i) {
+      j = Math.floor(Math.sqrt(value));
+      while (i <= j && value % i) {
         i += 2;
       }
-    } while (i <= q);
+    } while (i <= j);
     return value;
   }
   return value === 2 ? 3 : 2;
