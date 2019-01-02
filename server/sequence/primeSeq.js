@@ -1,6 +1,6 @@
 // Prime number sequence logic goes here.
 
-const getNextPrimeNumber = (value) => {
+const getNextPrime = (value) => {
   if (value > 2) {
     let i;
     let j;
@@ -20,7 +20,7 @@ const getNextPrimeNumber = (value) => {
 const primeSeq = () => {
   let currentValue = 0;
   return () => {
-    currentValue = getNextPrimeNumber(currentValue);
+    currentValue = getNextPrime(currentValue);
     return currentValue;
   };
 }
